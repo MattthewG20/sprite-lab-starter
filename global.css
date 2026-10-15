@@ -52,6 +52,26 @@ body {
 /* ---------- Lab 1: The Film Strip ---------- */
 /* YOUR CODE: Lab 1, the window and the spin */
 
+.coin-window {
+  width: 64px;
+  height: 64px;
+  border: 1px red dashed;
+  overflow: hidden;
+}
+
+@keyframes spin {
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(-100%);
+    }
+  }
+
+.coin-sheet {
+  animation: 0.8s steps(8) infinite spin;
+}
 
 /* ---------- Lab 2: Byte Walks ---------- */
 .robot-row {
@@ -70,6 +90,91 @@ body {
 }
 
 /* YOUR CODE: Lab 2, the windows and four directions */
+
+.robot-window {
+  width: 128px;
+  height: 128px;
+  overflow: hidden;
+}
+
+.robot-window:focus-visible {
+  border: 1px dotted black;
+}
+
+@keyframes walk-down {
+    from {
+      transform: translate(0, 0);
+    }
+
+    to {
+      transform: translate(-100%, 0);
+    }
+  }
+
+@keyframes walk-left {
+    from {
+      transform: translate(0, -25%);
+    }
+
+    to {
+      transform: translate(-100%, -25%);
+    }
+  }
+
+@keyframes walk-right {
+    from {
+      transform: translate(0, -50%);
+    }
+
+    to {
+      transform: translate(-100%, -50%);
+    }
+  }
+
+@keyframes walk-up {
+    from {
+      transform: translate(0, -75%);
+    }
+
+    to {
+      transform: translate(-100%, -75%);
+    }
+  }
+
+.robot-window:hover img,
+.robot-window:focus-visible img {
+  animation-duration: 0.8s;
+  animation-timing-function: steps(8);
+  animation-iteration-count: infinite;
+  animation-play-state: running;
+}
+
+.robot-window:active img {
+  animation-duration: 0.4s;
+  animation-timing-function: steps(8);
+  animation-iteration-count: infinite;
+  animation-play-state: running;
+}
+
+.walk-down img{
+  animation-name: walk-down;
+  transform: translateY(0);
+}
+
+.walk-left img{
+  animation-name: walk-left;
+  transform: translateY(-25%);
+}
+
+.walk-right img {
+  animation-name: walk-right;
+  transform: translateY(-50%);
+}
+
+.walk-up img {
+  animation-name: walk-up;
+  transform: translateY(-75%);
+}
 
 
 /* ---------- Lab 3: The Stage ---------- */
