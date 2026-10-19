@@ -186,6 +186,61 @@ body {
 }
 
 /* YOUR CODE: Lab 3, a window on the stage, then walk across */
+.stage-window {
+  width: 128px;
+  height: 128px;
+  overflow: hidden;
+}
 
+.stage {
+  overflow: hidden;
+}
+
+@keyframes cross {
+  from { transform: translateX(-128px)}
+  to { transform: translateX(100%)}
+}
+
+.walker {
+  animation: 6s linear infinite cross;
+}
+
+.stage-window .robot-sheet {
+  animation: 0.8s steps(8) infinite legs;
+}
+
+/* .stage:hover .walker,
+.stage:hover .robot-sheet {
+  animation-play-state: paused;
+} */
+
+@keyframes legs {
+    from {
+      transform: translate(0, -50%);
+    }
+
+    to {
+      transform: translate(-100%, -50%);
+    }
+  }
 
 /* YOUR CODE: Be kind to motion (at the very bottom) */
+@media (prefers-reduced-motion: reduce) {
+  .coin-sheet,
+  .stage-window .robot-sheet {
+    animation-play-state: paused;
+  }
+
+  .coin-sheet:hover {
+    animation-play-state: running;
+  }
+
+  .walker, .robot-sheet {
+    animation-play-state: paused;
+  }
+
+  .stage:hover .walker,
+  .stage:hover .robot-sheet {
+    animation-play-state: running;
+  }
+}
